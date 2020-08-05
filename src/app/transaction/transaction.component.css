@@ -1,0 +1,517 @@
+@keyframes animateArrow {
+  from {
+    border-color: dodgerblue;
+  }
+  to {
+    border-color: white;
+  }
+}
+
+@keyframes animateErrorBorder {
+  from {
+    border-bottom: 1px solid white;
+  }
+  to {
+    border-bottom: 1px solid #f0000b;
+  }
+}
+
+@keyframes animatePopup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+  opacity: 0.7; /* Firefox */
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+  opacity: 0.7; /* Firefox */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+* {
+  color: white;
+}
+
+input {
+  font-size: 18px;
+}
+
+.home-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 30px;
+
+  border-radius: 5px;
+  color: dodgerblue;
+  font-size: 20px;
+}
+
+.arrow {
+  border: solid dodgerblue;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-right: 5px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.credit-card {
+  position: relative;
+  margin-top: 6%;
+  width: 600px;
+  margin-top: 100px;
+  height: 300px;
+  background: rgb(228, 255, 6);
+  background: linear-gradient(
+    47deg,
+    rgba(228, 255, 6, 1) 0%,
+    rgba(245, 110, 54, 1) 41%,
+    rgba(255, 20, 84, 1) 78%
+  );
+  border-radius: 10px;
+  transition: width 2s, height 2s, margin-left 2s ease-in;
+}
+
+.shadow {
+  -webkit-box-shadow: 23px -9px 5px -2px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 23px -9px 5px -2px rgba(194, 194, 194, 1);
+  box-shadow: 23px -9px 5px -2px rgba(194, 194, 194, 1);
+}
+
+.logo {
+  position: absolute;
+  right: 13%;
+  top: 7%;
+  width: 15%;
+}
+
+.chip-image {
+  position: absolute;
+  left: 30px;
+  top: 20%;
+  width: 10%;
+}
+
+.credit-card-number {
+  position: absolute;
+  top: 38%;
+}
+
+.card-number {
+  margin-left: 20px;
+  border: none;
+  width: 20%;
+  background: repeating-linear-gradient(
+      90deg,
+      white 0,
+      white 1ch,
+      transparent 0,
+      transparent 1.9ch
+    )
+    0 100%/100% 2px no-repeat;
+  color: white;
+  font: 30px consolas, monospace;
+  letter-spacing: 0.8ch;
+}
+.cardholder-name {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  height: 80px;
+  margin-left: 30px;
+  width: 33%;
+}
+
+label {
+  font-size: 15px;
+}
+
+.column-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.cardholder-name-input {
+  border: 0;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  max-width: 100%;
+}
+
+.expiration-date {
+  position: absolute;
+  top: 65%;
+  right: 0;
+  margin-right: 30px;
+  width: 200px;
+  height: 80px;
+  align-items: center;
+}
+
+.date-unit {
+  border: 0;
+  display: inline-block;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  text-align: center;
+  width: 30px;
+}
+
+.circle {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  margin-top: -85px;
+  margin-right: -85px;
+  height: 150px;
+  width: 150px;
+  background-color: dodgerblue;
+  border-radius: 50%;
+  display: inline-block;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle span {
+  font-size: 16px;
+}
+
+.circle input {
+  width: 75%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid white;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.security-code {
+  position: absolute;
+  width: 40px;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  bottom: 35px;
+  left: 50%;
+  text-align: center;
+}
+
+.animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 200px;
+  position: relative;
+}
+
+.checkInput.ng-invalid.ng-touched {
+  animation-name: animateErrorBorder;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.alert {
+  background-color: #ffa095;
+  padding: 10px 0;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  animation-name: animatePopup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  width: 600px;
+  max-width: 100%;
+}
+
+.alert img {
+  margin-left: 15px;
+}
+
+.alert span {
+  margin-left: 30px;
+}
+
+.form-button {
+  font-size: 20px;
+  padding: 20px 20px;
+  color: black;
+  flex-basis: 160px;
+  border-radius: 10px;
+  border: 3px solid dodgerblue;
+  font-family: "Roboto Slab", serif;
+  background-color: transparent;
+  color: dodgerblue;
+}
+
+.credit-card-icon {
+  display: inline-block;
+  transition: margin-right 1s, opacity 0.75s;
+  position: absolute;
+  right: 0;
+  opacity: 0;
+}
+
+.form-button:hover {
+  cursor: pointer;
+}
+
+.form-button:hover + .credit-card-icon {
+  margin-right: 35px;
+  opacity: 1;
+}
+
+.success {
+  padding: 10px 0;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #abff52;
+  width: 600px;
+  max-width: 100%;
+  color: white;
+  animation-name: animatePopup;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.success img {
+  margin-left: 15px;
+}
+
+.success span {
+  margin-left: 30px;
+}
+
+.well-done {
+  color: black;
+}
+
+@media screen and (max-width: 780px) {
+  .credit-card {
+    width: 400px;
+    height: 200px;
+  }
+  label {
+    font-size: 10px;
+  }
+
+  .card-number {
+    width: 16%;
+    background: repeating-linear-gradient(
+        90deg,
+        white 0,
+        white 1ch,
+        transparent 0,
+        transparent 1.4ch
+      )
+      0 100%/100% 2px no-repeat;
+    color: white;
+    font: 22px consolas, monospace;
+    letter-spacing: 0.2ch;
+  }
+  .circle {
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-right: -50px;
+  }
+  .circle span {
+    font-size: 12px;
+  }
+
+  .circle input {
+    margin-top: 0;
+  }
+  input {
+    font-size: 12px;
+    width: 65%;
+  }
+  .expiration-date {
+    top: 73%;
+    right: 0;
+    margin-right: 25px;
+    width: 100px;
+    height: 40px;
+  }
+  .security-code {
+    bottom: 9%;
+    left: 49%;
+  }
+
+  .cardholder-name {
+    top: 73%;
+    left: 0;
+    height: 40px;
+    margin-left: 25px;
+  }
+
+  .form-button {
+    font-size: 15px;
+    padding: 15px 20px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .credit-card {
+    width: 250px;
+    height: 150px;
+  }
+  .circle {
+    width: 75px;
+    height: 75px;
+    margin-top: -35px;
+    margin-right: -45px;
+  }
+
+  .credit-card-number {
+    margin-top: 10px;
+  }
+  .card-number {
+    width: 13%;
+    background: repeating-linear-gradient(
+        90deg,
+        white 0,
+        white 1ch,
+        transparent 0,
+        transparent 1.4ch
+      )
+      0 100%/100% 2px no-repeat;
+    color: white;
+    font: 13px consolas, monospace;
+    letter-spacing: 0.14ch;
+  }
+  label {
+    font-size: 8px;
+  }
+  input {
+    font-size: 8px;
+  }
+
+  .expiration-date {
+    margin-right: 5px;
+    width: 80px;
+    height: 30px;
+    top: 70%;
+  }
+  .date-unit {
+    width: 15px;
+  }
+
+  .security-code {
+    width: 20px;
+    bottom: 10%;
+    left: 47%;
+  }
+
+  .cardholder-name {
+    margin-left: 10px;
+    width: 28%;
+    height: 30px;
+    top: 71%;
+  }
+
+  .chip-image {
+    top: 26%;
+  }
+
+  .logo {
+    right: 17%;
+    top: 13%;
+  }
+
+  .circle {
+    width: 75px;
+    height: 75px;
+    font-size: 15px;
+  }
+
+  .circle input {
+    margin-top: 0;
+    font-size: 13px;
+    width: 75%;
+  }
+
+  .form-button {
+    flex-basis: 120px;
+    padding: 5px 20px;
+  }
+  .form-button:hover + .credit-card-icon {
+    margin-right: 47px;
+  }
+}
+
+/* .form-button img {
+  margin-left: 150%;
+  transition: opacity 1s, margin-right 0.5s;
+  opacity: 0;
+}
+
+.form-button:hover img {
+  opacity: 1;
+  margin-right: 100px;
+} */
+/* .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+} */
+
+/* input.ng-valid.ng-touched {
+  border-color: green;
+} */
+/* .home-button:hover {
+  animation-name: buttonAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.home-button:hover .arrow {
+  animation-name: animateArrow;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+} */
+
+/* .exit {
+  margin-left: 3000px;
+  width: 400px;
+  height: 200px;
+} */

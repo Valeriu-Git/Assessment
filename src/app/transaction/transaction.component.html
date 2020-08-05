@@ -1,0 +1,174 @@
+<a routerLink="" class="home-button"> <i class="arrow left"></i>Go back home</a>
+
+<div class="center">
+  <form
+    id="transaction-form"
+    class="credit-card shadow"
+    #creditCard
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="circle shadow">
+      <span>SUM*</span>
+      <input
+        type="number"
+        formControlName="amount"
+        min="0"
+        #amountInput
+        class="checkInput"
+      />
+    </div>
+    <img
+      [src]="
+        checkTypeOfTransaction() !== ''
+          ? 'assets/' + checkTypeOfTransaction()
+          : ''
+      "
+      alt=""
+      class="logo"
+    />
+    <img src="assets\icons8-chip-card-60.png" class="chip-image" alt="" />
+    <div class="credit-card-number" formGroupName="creditCardNumber">
+      <input
+        type="text"
+        maxlength="4"
+        class="card-number"
+        spellcheck="false"
+        formControlName="firstQuarter"
+        #typeOfCard
+        (keypress)="checkInput($event, 'number')"
+      />
+      <input
+        type="text"
+        maxlength="4"
+        class="card-number"
+        spellcheck="false"
+        formControlName="secondQuarter"
+        (keypress)="checkInput($event, 'number')"
+      />
+      <input
+        type="text"
+        maxlength="4"
+        class="card-number"
+        spellcheck="false"
+        formControlName="thirdQuarter"
+        (keypress)="checkInput($event, 'number')"
+      />
+      <input
+        type="text"
+        maxlength="4"
+        class="card-number"
+        spellcheck="false"
+        formControlName="fourthQuarter"
+        (keypress)="checkInput($event, 'number')"
+      />
+    </div>
+    <div class="cardholder-name column-display">
+      <label for="name">CARD HOLDER*</label>
+      <input
+        type="text"
+        class="cardholder-name-input checkInput"
+        name="name"
+        placeholder="John Doe"
+        spellcheck="false"
+        formControlName="cardHolder"
+        (keypress)="checkInput($event, 'string')"
+      />
+    </div>
+
+    <input
+      type="text"
+      maxlength="3"
+      class="security-code checkInput"
+      placeholder="CVC"
+      formControlName="securityCode"
+      (keypress)="checkInput($event, 'number')"
+    />
+
+    <div class="expiration-date column-display">
+      <label for="">EXPIRES*</label>
+      <div formGroupName="expirationDate">
+        <input
+          type="text"
+          maxlength="2"
+          class="date-unit checkInput"
+          placeholder="MM"
+          formControlName="month"
+          (keypress)="checkInput($event, 'number')"
+        />
+        /
+        <input
+          type="text"
+          maxlength="2"
+          class="date-unit checkInput"
+          placeholder="YY"
+          formControlName="year"
+          (keypress)="checkInput($event, 'number')"
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="animation">
+    <button form="transaction-form" class="form-button">
+      Pay
+    </button>
+    <img src="assets/credit-card.png" alt="" class="credit-card-icon" />
+  </div>
+
+  <div class="alert" *ngIf="form.invalid && !successfullTransaction">
+    <img src="assets/caution.png" alt="" />
+    <span>Make sure you fill all fields!</span>
+  </div>
+
+  <div
+    class="alert"
+    *ngIf="
+      form.get('creditCardNumber').invalid &&
+      ((form.get('creditCardNumber.firstQuarter').touched &&
+        form.get('creditCardNumber.firstQuarter').invalid) ||
+        (form.get('creditCardNumber.secondQuarter').touched &&
+          form.get('creditCardNumber.secondQuarter').invalid) ||
+        (form.get('creditCardNumber.thirdQuarter').touched &&
+          form.get('creditCardNumber.thirdQuarter').invalid) ||
+        (form.get('creditCardNumber.fourthQuarter').touched &&
+          form.get('creditCardNumber.fourthQuarter').invalid))
+    "
+  >
+    <img src="assets/caution.png" alt="" />
+    <span>Dont forget to fill the card number!</span>
+  </div>
+
+  <div
+    class="alert"
+    *ngIf="
+      form.get('expirationDate').invalid &&
+      form.get('expirationDate.month').touched &&
+      form.get('expirationDate.year').touched &&
+      form.get('expirationDate').errors != null &&
+      form.get('expirationDate').errors.invalidDate
+    "
+  >
+    <img src="assets/caution.png" alt="" />
+    <span>Current expiration date is invalid!</span>
+  </div>
+
+  <div
+    class="alert"
+    *ngIf="form.get('amount').invalid && form.get('amount').touched"
+  >
+    <img src="assets/caution.png" alt="" />
+    <span>Don't forget to fill the amount!</span>
+  </div>
+
+  <div class="success" *ngIf="form.valid">
+    <img src="assets/tick.png" alt="" />
+    <span> Everything seems fine.You can proceed</span>
+  </div>
+
+  <div class="success" *ngIf="successfullTransaction">
+    <img src="assets/tick.png" alt="" /><span
+      >The transaction has been successfully processed!</span
+    >
+  </div>
+</div>

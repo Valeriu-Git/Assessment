@@ -1,0 +1,23 @@
+.transaction-button {
+  padding: 25px 40px;
+  border-radius: 5px;
+  border: 2px solid dodgerblue;
+  color: dodgerblue;
+}
+
+.transaction-button:hover {
+  animation-name: buttonAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes buttonAnimation {
+  from {
+    background-color: transparent;
+    color: dodgerblue;
+  }
+  to {
+    background-color: dodgerblue;
+    color: white;
+  }
+}
